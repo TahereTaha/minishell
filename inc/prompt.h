@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   prompt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 17:34:04 by gasroman          #+#    #+#             */
-/*   Updated: 2024/09/23 05:32:11 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/09/26 12:50:46 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <readline/readline.h>
 # include <readline/history.h>
-# include "../libft/libft.h"
+# include "../libft/inc/libft.h"
 
 # define FALSE					0
 # define TRUE					1
