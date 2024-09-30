@@ -1,5 +1,5 @@
 [submodule "minish_libft"]
-	path = libft
+	path = minish_libft
 	url = https://github.com/GastonRLdL/minish_libft
 [submodule "read_line_mirror"]
 	path = read_line_mirror
