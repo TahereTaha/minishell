@@ -6,9 +6,14 @@
 /*   By: tatahere <tatahere@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:47:13 by tatahere          #+#    #+#             */
-/*   Updated: 2024/09/23 14:47:54 by tatahere         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:35:03 by tatahere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ENV_H
+# define ENV_H
+
 void	*set_env(char **env);
 void	clean_env(void *env);
+
+#endif

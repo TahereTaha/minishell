@@ -1,0 +1,14 @@
+- [ ] do the documentation
+	- [ ] make the definitions
+	- [x] make the manual
+		- [x] shell operations
+		- [x] quoting
+		- [x] pipelines
+		- [x] comand lists
+		- [x] subshell
+		- [x] environment variables
+		- [x] expansions
+		- [x] redirections
+	- [ ] make the project documentation
+		- [ ] journey of a command.
+		- [ ] project structure.
