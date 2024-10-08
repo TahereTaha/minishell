@@ -6,11 +6,11 @@
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 15:26:40 by gasroman          #+#    #+#             */
-/*   Updated: 2024/09/23 05:42:38 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/09/23 15:12:23 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minishell.h"
+#include "../inc/prompt.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -54,34 +54,14 @@ int	check_heredoc(char *haystak)
 	return (1);
 }
 
-int	main(void)
+int	exec_promp(char **env)
 {
 	char	*input;
 
 	while (1)
 	{
 		input = readline("WaitingShell: ");
-		if (!check_heredoc(input))
-		{
-			_heredoc(input);
-		}
-		else if (!ft_strcmp(input, "exit"))
-		{
-			printf("I don't feel so good Mr. Stark...\n");
-			free(input);
-			break ;
-		}
-		else if (*input == '\0')
-		{
-			free(input);
-			continue ;
-		}
-		else
-		{
-			add_history(input);
-			printf("%s\n", input);
-			free(input);
-		}
+		run_comand(input, env);
 	}
 	return (0);
 }
