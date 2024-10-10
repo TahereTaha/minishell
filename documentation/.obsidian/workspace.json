@@ -35,9 +35,11 @@
             "id": "07352260b53a4e94",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Untitled-2024-09-16-1730.svg"
+                "file": "project documentation.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -108,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Untitled-2024-09-16-1730.svg",
+                "file": "project documentation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Untitled-2024-09-16-1730.svg",
+                "file": "project documentation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Untitled-2024-09-16-1730.svg"
+                "file": "project documentation.md"
               }
             }
           }
@@ -171,6 +173,7 @@
   },
   "active": "07352260b53a4e94",
   "lastOpenFiles": [
+    "Untitled-2024-09-16-1730.svg",
     "project documentation.md",
     "Untitled-2024-09-16-1730(13).svg",
     "Untitled-2024-09-16-1730(4).svg",
