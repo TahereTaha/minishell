@@ -6,62 +6,38 @@
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 15:26:40 by gasroman          #+#    #+#             */
-/*   Updated: 2024/09/23 15:12:23 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:08:30 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/prompt.h"
 
-int	ft_strcmp(char *s1, char *s2)
+t_tree_node	*create_node(char *value, t_tree_node *parent)
 {
-	int	i;
+	t_tree_node	*new_node;
 
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
+	new_node = malloc(sizeof(t_tree_node));
+	if (!new_node)
+		exit(1);
+	new_node->value = value;
+	new_node->left = NULL;
+	new_node->right = NULL;
+	new_node->parent = parent;
+	return (new_node);
 }
 
-void	_heredoc(char *str)
+void	insert(t_tree_node **root, char *value, t_tree_node *parent)
 {
-	char	*hd_input;
-	char	**_name;
-
-	_name = ft_split(str, ' ');
-	while (1)
+	if (*root == NULL)
 	{
-		hd_input = readline("> ");
-		if (!ft_strcmp(hd_input, _name[1]))
-		{
-			free(hd_input);
-			break ;
-		}
+		*root = create_node(value, parent);
 	}
-}
-
-int	check_heredoc(char *haystak)
-{
-	int	i;
-
-	i = 0;
-	while (haystak[i])
+	else if (strcmp(value, (*root)->value) < 0)
 	{
-		if (haystak[i] == '<' && haystak[i++] == '<')
-			return (0);
-		else
-			i++;
+		insert(&(*root)->left, value, *root);
 	}
-	return (1);
-}
-
-int	exec_promp(char **env)
-{
-	char	*input;
-
-	while (1)
+	else
 	{
-		input = readline("WaitingShell: ");
-		run_comand(input, env);
+		insert(&(*root)->right, value, *root);
 	}
-	return (0);
 }
