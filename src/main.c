@@ -6,7 +6,7 @@
 /*   By: tatahere <tatahere@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 09:53:42 by tatahere          #+#    #+#             */
-/*   Updated: 2024/10/14 08:39:55 by tatahere         ###   ########.fr       */
+/*   Updated: 2024/10/14 11:23:59 by tatahere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 int	main(void)
 {
 	printf("minishell is workning\n");
-	exec_prompt(NULL);
+	exec_prompt();
 	return (42);
 }

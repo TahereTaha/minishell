@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/11 11:44:38 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/14 11:18:41 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-$(BIN_DIR)$(MODULE_NAME)_%.o: %.c $(LIBFT) Makefile
-	$(CC) $(FLAGS) -c $< -o $@
+$(BIN_DIR)$(MODULE_NAME)_%.o: %.c Makefile
+	$(CC) $(CFLAGS) -c $< -o $@
 
 .PHONY: all
 -include $(DEPS)

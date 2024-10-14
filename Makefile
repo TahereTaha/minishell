@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/14 09:34:29 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/14 11:55:01 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,12 @@ LIBFT			=	$(LIBFT_DIR)libft.a
 # ============================ modules ======================================= #
 
 #	prompt
-PROMPT_ARCHIVE	=	$(BIN_DIR)/prompt.a
+PROMPT_ARCHIVE	=	$(BIN_DIR)prompt.a
 MODULE_ARCHIVE	:=	$(PROMPT_ARCHIVE)
 
+#	core
+CORE_ARCHIVE	=	$(BIN_DIR)core.a
+MODULE_ARCHIVE	+=	$(CORE_ARCHIVE)
 
 # ============================ cflags ======================================== #
 
@@ -57,9 +60,9 @@ VPATH			:=	src
 
 NAME			=	minishell
 
-all: $(NAME)
+all: modules $(NAME)
 
-$(NAME): $(BIN_DIR) modules $(OBJS)
+$(NAME): $(BIN_DIR) $(OBJS) $(MODULE_ARCHIVE)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MODULE_ARCHIVE)
 
 $(BIN_DIR):
@@ -67,6 +70,7 @@ $(BIN_DIR):
 
 modules:
 	make -C src/prompt/
+	make -C src/core/
 
 $(BIN_DIR)%.o: %.c Makefile
 	$(CC) $(CFLAGS) -c $< -o $@

@@ -6,13 +6,13 @@
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 17:34:04 by gasroman          #+#    #+#             */
-/*   Updated: 2024/10/14 09:29:30 by tatahere         ###   ########.fr       */
+/*   Updated: 2024/10/14 11:22:27 by tatahere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PROMPT_H
 # define PROMPT_H
 
-void	exec_prompt(void *env);
+void	exec_prompt(void);
 
 #endif
