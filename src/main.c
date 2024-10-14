@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.h                                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tatahere <tatahere@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 14:47:13 by tatahere          #+#    #+#             */
-/*   Updated: 2024/10/10 09:40:21 by tatahere         ###   ########.fr       */
+/*   Created: 2024/10/10 09:53:42 by tatahere          #+#    #+#             */
+/*   Updated: 2024/10/14 08:39:55 by tatahere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_H
-# define ENV_H
+#include <stdio.h>
 
-void	*set_env(char **env);
-void	free_env(void *env);
+#include "prompt.h"
 
-#endif
+int	main(void)
+{
+	printf("minishell is workning\n");
+	exec_prompt(NULL);
+	return (42);
+}

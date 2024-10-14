@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.h                                              :+:      :+:    :+:   */
+/*   mock.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tatahere <tatahere@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 14:47:13 by tatahere          #+#    #+#             */
-/*   Updated: 2024/10/10 09:40:21 by tatahere         ###   ########.fr       */
+/*   Created: 2024/10/10 10:03:53 by tatahere          #+#    #+#             */
+/*   Updated: 2024/10/10 10:22:30 by tatahere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_H
-# define ENV_H
+#include <stdio.h>
 
-void	*set_env(char **env);
-void	free_env(void *env);
+//	function prototipes
+#include "env.h"
 
-#endif
+void	*set_env(char **env)
+{
+	(void)env;
+	printf("this is the mock of the set_env function\n");
+	return ("");
+}
+
+void	free_env(void *env)
+{
+	(void)env;
+	printf("this is the mock of the frre_env function\n");
+}

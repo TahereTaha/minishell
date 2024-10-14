@@ -6,35 +6,26 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/14 09:34:29 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/11 11:44:38 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 AR				=	ar -rcs
 CC				=	cc
-RM				=	rm -rf
 
-BIN_DIR			=	bin/
-INC_DIR			=	inc/
+ROOT_DIR		=	../../
+BIN_DIR			=	$(ROOT_DIR)bin/
+INC_DIR			=	$(ROOT_DIR)inc/
+MODULE_NAME		=	core
 
 # ============================ libft ========================================= #
 
 LIBFT_DIR		=	$(ROOT_DIR)lib/libft/
 LIBFT			=	$(LIBFT_DIR)libft.a
 
-# ============================ modules ======================================= #
-
-#	prompt
-PROMPT_ARCHIVE	=	$(BIN_DIR)/prompt.a
-MODULE_ARCHIVE	:=	$(PROMPT_ARCHIVE)
-
-
 # ============================ cflags ======================================== #
 
 CFLAGS			:=	-Wall -Wextra -Werror
-
-#	dependencies
-CFLAGS			+=	-MMD
 
 #	includes
 CINC			+=	-I$(LIBFT_DIR) 
@@ -45,39 +36,27 @@ CFLAGS			+=	$(CINC)
 CDEBUG			=	-g -fsanitize=address
 CFLAGS			+=	$(CDEBUG)
 
+#	dependencies
+CFLAGS			+=	-MMD
+
 # ============================ files ========================================= #
 
-OBJS			:=	main.o
+OBJS			:=	mock.o
+OBJS			:=	$(addprefix $(MODULE_NAME)_, $(OBJS))
 OBJS			:=	$(addprefix $(BIN_DIR), $(OBJS))
 DEPS			:=	$(OBJS:.o=.d)
 
-VPATH			:=	src
+# ============================ rules ========================================= #
 
-# =========================== rules ========================================= #
-
-NAME			=	minishell
+NAME			=	$(BIN_DIR)$(MODULE_NAME).a
 
 all: $(NAME)
 
-$(NAME): $(BIN_DIR) modules $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MODULE_ARCHIVE)
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
-$(BIN_DIR):
-	mkdir $(BIN_DIR)
+$(BIN_DIR)$(MODULE_NAME)_%.o: %.c $(LIBFT) Makefile
+	$(CC) $(FLAGS) -c $< -o $@
 
-modules:
-	make -C src/prompt/
-
-$(BIN_DIR)%.o: %.c Makefile
-	$(CC) $(CFLAGS) -c $< -o $@
-
-clean:
-	$(RM) bin
-
-fclean: clean
-	$(RM) $(NAME)
-
-re: fclean all
-
-.PHONY: all clean fclean re modules
+.PHONY: all
 -include $(DEPS)
