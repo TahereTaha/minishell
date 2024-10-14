@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/14 16:18:20 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/14 16:28:38 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,8 +72,8 @@ libs: $(LIBFT_MAKE)
 	make -C $(LIBFT_DIR)
 
 $(LIBFT_MAKE):
-	echo $@
-	echo oh no
+	git submodule init
+	git submodule update
 
 $(BIN_DIR):
 	mkdir $(BIN_DIR)
