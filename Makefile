@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/14 11:55:01 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/14 16:18:20 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,16 @@ RM				=	rm -rf
 BIN_DIR			=	bin/
 INC_DIR			=	inc/
 
-# ============================ libft ========================================= #
+# ============================ libs ========================================== #
 
-LIBFT_DIR		=	$(ROOT_DIR)lib/libft/
+#	libft
+LIBFT_DIR		=	$(ROOT_DIR)libs/libft/
+LIBFT_MAKE		=	$(LIBFT_DIR)Makefile
 LIBFT			=	$(LIBFT_DIR)libft.a
+LIBS			:=	$(LIBFT)
+
+#	readline
+#  == THINGS ==  #
 
 # ============================ modules ======================================= #
 
@@ -60,10 +66,14 @@ VPATH			:=	src
 
 NAME			=	minishell
 
-all: modules $(NAME)
+all: libs $(BIN_DIR) modules $(NAME)
 
-$(NAME): $(BIN_DIR) $(OBJS) $(MODULE_ARCHIVE)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MODULE_ARCHIVE)
+libs: $(LIBFT_MAKE)
+	make -C $(LIBFT_DIR)
+
+$(LIBFT_MAKE):
+	echo $@
+	echo oh no
 
 $(BIN_DIR):
 	mkdir $(BIN_DIR)
@@ -71,6 +81,9 @@ $(BIN_DIR):
 modules:
 	make -C src/prompt/
 	make -C src/core/
+
+$(NAME): $(OBJS) $(MODULE_ARCHIVE) $(LIBS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MODULE_ARCHIVE) $(LIBS)
 
 $(BIN_DIR)%.o: %.c Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -83,5 +96,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re modules
+.PHONY: all clean fclean re modules libs
 -include $(DEPS)
