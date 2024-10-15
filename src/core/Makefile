@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/14 16:06:55 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/15 18:39:06 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,14 @@ AR				=	ar -rcs
 CC				=	cc
 
 ROOT_DIR		=	../../
+LIBS_DIR		=	$(ROOT_DIR)libs/
 BIN_DIR			=	$(ROOT_DIR)bin/
 INC_DIR			=	$(ROOT_DIR)inc/
 MODULE_NAME		=	core
+
+# ============================ cflags ======================================== #
+
+LIBFT_DIR		=	$(LIBS_DIR)libft/
 
 # ============================ cflags ======================================== #
 
@@ -24,6 +29,7 @@ CFLAGS			:=	-Wall -Wextra -Werror
 
 #	includes
 CINC			+=	-I$(INC_DIR) 
+CINC			+=	-I$(LIBFT_DIR) 
 CFLAGS			+=	$(CINC)
 
 #	debug
@@ -35,7 +41,8 @@ CFLAGS			+=	-MMD
 
 # ============================ files ========================================= #
 
-OBJS			:=	mock.o
+OBJS			:=	main.o			\
+					tokenizer.o
 OBJS			:=	$(addprefix $(MODULE_NAME)_, $(OBJS))
 OBJS			:=	$(addprefix $(BIN_DIR), $(OBJS))
 DEPS			:=	$(OBJS:.o=.d)

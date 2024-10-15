@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/14 16:28:38 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/15 18:56:29 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ NAME			=	minishell
 all: libs $(BIN_DIR) modules $(NAME)
 
 libs: $(LIBFT_MAKE)
-	make -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR) bonus
 
 $(LIBFT_MAKE):
 	git submodule init
