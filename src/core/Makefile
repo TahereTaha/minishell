@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/16 05:37:14 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/16 07:56:33 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,13 @@ CFLAGS			+=	-MMD
 
 # ============================ files ========================================= #
 
-OBJS			:=	main.o			\
-					tokenizer.o
+OBJS			:=	main.o				\
+					tokenizer.o			\
+					tokenizer_utils.o	\
+					get_token.o			\
+					free_token.o		\
+					debug.o				\
+
 OBJS			:=	$(addprefix $(MODULE_NAME)_, $(OBJS))
 OBJS			:=	$(addprefix $(BIN_DIR), $(OBJS))
 DEPS			:=	$(OBJS:.o=.d)

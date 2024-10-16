@@ -6,30 +6,32 @@
 /*   By: tatahere <tatahere@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:54:47 by tatahere          #+#    #+#             */
-/*   Updated: 2024/10/15 19:02:02 by tatahere         ###   ########.fr       */
+/*   Updated: 2024/10/16 09:21:14 by tatahere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <errno.h>
 #include <stdlib.h>
 #include "libft.h"
 #include "core.h"
 #include "core_local.h"
 
-void	run_command(char *cmd)
+static void	debug_print_function_info(char *cmd_str)
+{
+	printf("this is the run_command function\n");
+	printf("\tthe cmd_str recived is:\n\t\t%s\n", cmd_str);
+}
+
+int	run_command(char *cmd_str)
 {
 	t_list	*token_list;
-
-	printf("this is the mock of the run_command function\n");
-	printf("\tthe cmd recived is: %s\n", cmd);
-	token_list = tokenizer(cmd);
+	
+	debug_print_function_info(cmd_str);
+	token_list = tokenizer(cmd_str);
+	free(cmd_str);
 	if (!token_list)
-	{
-		printf("something really bad hapened\n");
-		free(cmd);
-		return ;
-	}
-	printf("the cmd string has ben broken down into:\n");
-	print_token_list(token_list);
-
+		return (ENOMEM);
+	ft_lstclear(&token_list, &free_token);
+	return (0);
 }

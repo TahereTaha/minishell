@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   core.h                                             :+:      :+:    :+:   */
+/*   free_token.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tatahere <tatahere@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 14:34:33 by tatahere          #+#    #+#             */
-/*   Updated: 2024/10/16 07:18:23 by tatahere         ###   ########.fr       */
+/*   Created: 2024/10/16 07:28:21 by tatahere          #+#    #+#             */
+/*   Updated: 2024/10/16 07:45:57 by tatahere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CORE_H
-#define CORE_H
+#include <stdlib.h>
 
-int	run_command(char *str);
+#include "core_local.h"
 
-#endif
+void	free_token(void *content)
+{
+	t_token	*token;
+
+	if (!content)
+		return ;
+	token = content;
+	free(token->content);
+	free(token);
+}

@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/15 18:56:29 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/16 09:24:50 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ INC_DIR			=	inc/
 
 #	libft
 LIBFT_DIR		=	$(ROOT_DIR)libs/libft/
-LIBFT_MAKE		=	$(LIBFT_DIR)Makefile
 LIBFT			=	$(LIBFT_DIR)libft.a
 LIBS			:=	$(LIBFT)
 
@@ -68,12 +67,11 @@ NAME			=	minishell
 
 all: libs $(BIN_DIR) modules $(NAME)
 
-libs: $(LIBFT_MAKE)
-	make -C $(LIBFT_DIR) bonus
-
-$(LIBFT_MAKE):
+libs:
 	git submodule init
 	git submodule update
+	make -C $(LIBFT_DIR) bonus
+
 
 $(BIN_DIR):
 	mkdir $(BIN_DIR)
@@ -90,9 +88,11 @@ $(BIN_DIR)%.o: %.c Makefile
 
 clean:
 	$(RM) bin
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

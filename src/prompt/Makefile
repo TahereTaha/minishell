@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/14 09:29:13 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/16 07:02:06 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,20 +14,21 @@ AR				=	ar -rcs
 CC				=	cc
 
 ROOT_DIR		=	../../
+LIBS_DIR		=	$(ROOT_DIR)libs/
 BIN_DIR			=	$(ROOT_DIR)bin/
 INC_DIR			=	$(ROOT_DIR)inc/
 MODULE_NAME		=	prompt
 
 # ============================ libft ========================================= #
 
-LIBFT_DIR		=	$(ROOT_DIR)lib/libft/
-LIBFT			=	$(LIBFT_DIR)libft.a
+LIBFT_DIR		=	$(LIBS_DIR)libft/
 
 # ============================ cflags ======================================== #
 
 CFLAGS			:=	-Wall -Wextra -Werror
 
 #	includes
+CINC			+=	-I. 
 CINC			+=	-I$(LIBFT_DIR) 
 CINC			+=	-I$(INC_DIR) 
 CFLAGS			+=	$(CINC)
