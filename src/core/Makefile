@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/15 18:39:06 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/16 05:37:14 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ LIBFT_DIR		=	$(LIBS_DIR)libft/
 
 CFLAGS			:=	-Wall -Wextra -Werror
 
-#	includes
+#	includesi
+CINC			+=	-I. 
 CINC			+=	-I$(INC_DIR) 
 CINC			+=	-I$(LIBFT_DIR) 
 CFLAGS			+=	$(CINC)
@@ -46,6 +47,8 @@ OBJS			:=	main.o			\
 OBJS			:=	$(addprefix $(MODULE_NAME)_, $(OBJS))
 OBJS			:=	$(addprefix $(BIN_DIR), $(OBJS))
 DEPS			:=	$(OBJS:.o=.d)
+
+VPATH			=tokenizer
 
 # ============================ rules ========================================= #
 
