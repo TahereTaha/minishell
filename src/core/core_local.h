@@ -6,7 +6,7 @@
 /*   By: tatahere <tatahere@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:34:48 by tatahere          #+#    #+#             */
-/*   Updated: 2024/10/16 08:19:15 by tatahere         ###   ########.fr       */
+/*   Updated: 2024/10/18 08:09:30 by tatahere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@
 //==== tokenizer ====//
 //===================//
 
-//	BLANK
-//		any of the following: " ", "\t", "\n".
+//	TERMINAL_TOKEN
+//		the character "\0". to indicate the finish of a command.
 //
 //	WORD
 //		any string that dosent pertain to the other categories.
+//
+//	BLANK
+//		any of the following: " ", "\t", "\n".
 //
 //	REDIRECTION
 //		any of the following: "<", ">", "<<", ">>".
