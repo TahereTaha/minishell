@@ -6,7 +6,7 @@
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 07:29:29 by gasroman          #+#    #+#             */
-/*   Updated: 2024/10/10 19:01:52 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/10/22 18:30:48 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ typedef enum e_node_type
 
 typedef struct s_tree_node
 {
-	char				*content;	// Contenido del nodo
-	t_node_type			type;		// Tipo del nodo
-	struct s_tree_node	*left;		// Puntero al nodo a la izquierda
-	struct s_tree_node	*right;		// Puntero al nodo a la derecha
-	struct s_tree_node	*parent;	// Puntero al nodo padre
+	char				*content;
+	int					type;
+	struct s_tree_node	*parent;
+	struct s_tree_node	**children;
+	int					num_children;
+	int					capacity;
 }	t_tree_node;

@@ -6,54 +6,50 @@
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 07:40:13 by gasroman          #+#    #+#             */
-/*   Updated: 2024/10/10 19:01:21 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/10/22 18:36:51 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./token.h"
+#include "token.h"
 
-e'c'"h"$a lol
-ech$a hola "queso" 'paan' | cat | ls | sleep 5
-
-t_tree_node	*create_tree_node(char *value, t_node_type type)
+t_tree_node	*create_node(char *content, int type)
 {
-	t_tree_node	*node;
+	t_tree_node	*new_node;
 
-	node = (t_tree_node *)malloc(sizeof(t_tree_node));
-	if (!node)
+	new_node = (t_tree_node *)malloc(sizeof(t_tree_node));
+	if (!new_node)
 		return (NULL);
-	node->content = ft_strdup(value);
-	node->type = type;
-	node->left = NULL;
-	node->right = NULL;
-	node->parent = NULL;
-	return (node);
+	new_node->content = strdup(content);
+	new_node->type = type;
+	new_node->parent = NULL;
+	new_node->children = NULL;
+	new_node->num_children = 0;
+	new_node->capacity = 0;
+	return (new_node);
 }
 
 void	add_child(t_tree_node *parent, t_tree_node *child)
 {
-	t_tree_node	*current;
+	t_tree_node	**new_children;
+	int			new_capacity;
+	int			i;
 
-	if (!parent->child)
-		parent->child = child;
-	else
+	i = 0;
+	if (parent->num_children >= parent->capacity)
 	{
-		current = parent->child;
-		while (current->next)
-			current = current->next;
-		current->next = child;
+		new_capacity = parent->capacity + 1;
+		new_children = malloc(sizeof(t_tree_node *) * new_capacity);
+		if (!new_children)
+		{
+			perror("malloc");
+			return (NULL);
+		}
+		while (i < parent->num_children)
+			new_children[i] = parent->children[i];
+		free(parent->children);
+		parent->children = new_children;
+		parent->capacity = new_capacity;
 	}
-	child->parent = parent;
+	parent->children[parent->num_children] = child;
+	parent->num_children++;
 }
-
-void	add_sibling(t_tree_node *node, t_tree_node *sibling)
-{
-	t_tree_node	*current;
-
-	current = node;
-	while (current->next)
-		current = current->next;
-	current->next = sibling;
-	sibling->parent = node->parent;
-}
- 
