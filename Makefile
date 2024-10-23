@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/09/23 05:36:13 by gasroman         ###   ########.fr        #
+#    Updated: 2024/10/23 19:16:39 by gasroman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,9 @@ MAKE = make --no-print-directory
 FLAGS = -L/usr/local/lib -I/usr/local/include -lreadline -Wall -Wextra -Werror
 
 # =========================== SOURCES ======================================== #
-SRC_PATH = src/
+SRC_PATH = src/prompt/
 SRC = test.c
-LIB_PATH = ./libft/
+LIB_PATH = src/prompt/libft/
 LIB = $(LIB_PATH)libft.a
 INC =	-I ./inc/
 

@@ -6,11 +6,11 @@
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 15:26:40 by gasroman          #+#    #+#             */
-/*   Updated: 2024/09/23 15:12:23 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/10/23 19:17:50 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/prompt.h"
+#include "./prompt.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -63,5 +63,14 @@ int	exec_promp(char **env)
 		input = readline("WaitingShell: ");
 		run_comand(input, env);
 	}
+	return (0);
+}
+
+int main(int ac, char **av, char **env)
+{
+	ac = 0;
+	av = NULL;
+
+	exec_promp(env);
 	return (0);
 }

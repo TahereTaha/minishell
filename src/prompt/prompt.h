@@ -6,19 +6,19 @@
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 17:34:04 by gasroman          #+#    #+#             */
-/*   Updated: 2024/09/26 12:50:46 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/10/23 19:15:42 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#ifndef PROMPT_H
+# define PROMPT_H
 
 # include <stdio.h>
 # include <limits.h>
 # include <stdlib.h>
 # include <readline/readline.h>
 # include <readline/history.h>
-# include "../libft/inc/libft.h"
+# include "libft/libft.h"
 
 # define FALSE					0
 # define TRUE					1
@@ -47,11 +47,17 @@
 # define NO_PIPE 		"Insert ERROR MESSAGE\n"
 # define NO_CHILD 		"ABORT:\n"
 
-typedef struct s_token
+typedef struct s_tree_node
 {
-}	t_token;
+	char				*content;
+	int					type;
+	struct s_tree_node	*parent;
+	struct s_tree_node	**children;
+	int					num_children;
+}	t_tree_node;
 
 //#-----pipex.c----#//
+int	exec_promp(char **env);
 
 //#-----init.c-----#//
 
