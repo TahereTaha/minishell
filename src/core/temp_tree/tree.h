@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tree.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tatahere <tatahere@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 09:53:42 by tatahere          #+#    #+#             */
-/*   Updated: 2024/10/18 08:18:29 by tatahere         ###   ########.fr       */
+/*   Created: 2024/10/18 06:21:41 by tatahere          #+#    #+#             */
+/*   Updated: 2024/10/18 06:25:03 by tatahere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef TREE_H
+# define TREE_H
 
-#include "prompt.h"
+# include "libft.h"
 
-int	main(void)
+typedef struct s_tree
 {
-	printf("minishell is workning\n");
-	exec_prompt();
-	return (42);
-}
+	void	*content;
+	t_list	*child_node;
+}	t_tree;
+
+#endif

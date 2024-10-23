@@ -61,7 +61,7 @@ int	run_command(char *cmd_str)
 {
 	int		error_value;
 	t_list	*token_list;
-	void	*ast;
+	void	*ast;		// abstract sintax tree
 
 	ast = NULL;
 	token_list = NULL;

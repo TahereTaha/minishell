@@ -6,7 +6,7 @@
 /*   By: tatahere <tatahere@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 12:32:22 by tatahere          #+#    #+#             */
-/*   Updated: 2024/10/16 09:19:21 by tatahere         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:46:20 by tatahere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 static t_token	*get_next_token(char *cmd_str)
 {
-	static size_t	i;
+	static size_t	i = 0;
 	t_token			*token;
 
 	token = get_token(&cmd_str[i]);
@@ -30,6 +30,8 @@ static t_token	*get_next_token(char *cmd_str)
 		i += ft_strlen(token->content);
 		free_token(token);
 		token = get_token(&cmd_str[i]);
+		if (!token)
+			return (NULL);
 	}
 	if (token->kind == TERMINAL_TOKEN)
 		i = 0;
