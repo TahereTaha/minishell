@@ -6,12 +6,17 @@
 /*   By: gasroman <gasromann@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 16:28:47 by gasroman          #+#    #+#             */
-/*   Updated: 2024/10/17 16:32:13 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/10/23 19:24:21 by tatahere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/prompt.h"
+#include <readline/readline.h>
+#include <readline/history.h>
 
+#include "prompt.h"
+#include "core.h"
+
+/*
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
@@ -53,15 +58,17 @@ int	check_heredoc(char *haystak)
 	}
 	return (1);
 }
-
-int	exec_promp(char **env)
+*/
+int	exec_prompt(void)
 {
 	char	*input;
 
 	while (1)
 	{
 		input = readline("WaitingShell: ");
-		run_comand(input, env);
+		if (!input)
+			return (0);
+		run_command(input);
 	}
 	return (0);
 }

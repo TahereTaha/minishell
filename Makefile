@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/16 09:24:50 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/23 19:18:57 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,6 @@ libs:
 	git submodule update
 	make -C $(LIBFT_DIR) bonus
 
-
 $(BIN_DIR):
 	mkdir $(BIN_DIR)
 
@@ -81,7 +80,7 @@ modules:
 	make -C src/core/
 
 $(NAME): $(OBJS) $(MODULE_ARCHIVE) $(LIBS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MODULE_ARCHIVE) $(LIBS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MODULE_ARCHIVE) $(LIBS) -L/usr/local/lib -lreadline
 
 $(BIN_DIR)%.o: %.c Makefile
 	$(CC) $(CFLAGS) -c $< -o $@

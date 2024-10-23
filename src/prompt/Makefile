@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 17:26:50 by gasroman          #+#    #+#              #
-#    Updated: 2024/10/16 07:02:06 by tatahere         ###   ########.fr        #
+#    Updated: 2024/10/23 19:08:29 by tatahere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ BIN_DIR			=	$(ROOT_DIR)bin/
 INC_DIR			=	$(ROOT_DIR)inc/
 MODULE_NAME		=	prompt
 
-# ============================ libft ========================================= #
+# ============================ external libraries ============================ #
 
 LIBFT_DIR		=	$(LIBS_DIR)libft/
 
@@ -42,7 +42,7 @@ CFLAGS			+=	-MMD
 
 # ============================ files ========================================= #
 
-OBJS			:=	mock.o
+OBJS			:=	__prompt.o
 OBJS			:=	$(addprefix $(MODULE_NAME)_, $(OBJS))
 OBJS			:=	$(addprefix $(BIN_DIR), $(OBJS))
 DEPS			:=	$(OBJS:.o=.d)
