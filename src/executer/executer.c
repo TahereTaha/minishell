@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.h                                           :+:      :+:    :+:   */
+/*   executer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 17:34:04 by gasroman          #+#    #+#             */
-/*   Updated: 2024/10/23 19:11:12 by tatahere         ###   ########.fr       */
+/*   Created: 2024/10/24 15:01:31 by gasroman          #+#    #+#             */
+/*   Updated: 2024/10/24 15:52:49 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PROMPT_H
-# define PROMPT_H
 
-int	exec_prompt(void);
-
-#endif
+int	executer(t_strutct prompt)
+{
+}

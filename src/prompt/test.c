@@ -1,22 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   __prompt.c                                         :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 16:28:47 by gasroman          #+#    #+#             */
-/*   Updated: 2024/10/24 15:51:14 by gasroman         ###   ########.fr       */
+/*   Created: 2024/09/18 15:26:40 by gasroman          #+#    #+#             */
+/*   Updated: 2024/10/24 15:50:36 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <readline/readline.h>
-#include <readline/history.h>
+#include "./prompt.h"
 
-#include "prompt.h"
-#include "core.h"
-
-/*
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
@@ -58,17 +53,24 @@ int	check_heredoc(char *haystak)
 	}
 	return (1);
 }
-*/
-int	exec_prompt(void)
+
+int	exec_promp(char **env)
 {
 	char	*input;
 
 	while (1)
 	{
 		input = readline("WaitingShell: ");
-		if (!input)
-			return (0);
-		run_command(input);
+		run_comand(input, env);
 	}
+	return (0);
+}
+
+int main(int ac, char **av, char **env)
+{
+	ac = 0;
+	av = NULL;
+
+	exec_promp(env);
 	return (0);
 }
